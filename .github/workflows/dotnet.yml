@@ -21,11 +21,17 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
+    - name: Checkout private tools
 
-    - uses: actions/checkout@v1  
+      uses: actions/checkout@v3
       with:
         repository: e-simo/DependentLibrary
-        token: ${{ secrets.id_rsa }}
+        token: ${{ secrets.GH_PAT }} # `GH_PAT` is a secret that contains your PAT
+        path: .
+    #- uses: actions/checkout@v1  
+    #  with:
+    #    repository: e-simo/DependentLibrary
+    #    token: ${{ secrets.id_rsa }}
     #- name: Checkout tools repo
     #  uses: actions/checkout@v3
     #  with:
