@@ -22,19 +22,23 @@ jobs:
       with:
         dotnet-version: 6.0.x
 
+    - uses: actions/checkout@v1  
+      with:
+        repository: e-simo/DependentLibrary
+        token: ${{ secrets.ID_RSA }}
     #- name: Checkout tools repo
     #  uses: actions/checkout@v3
     #  with:
     #    repository: e-simo/DependentLibrary
     #    path: .
-    - name: Setup SSH
-      uses: MrSquaare/ssh-setup-action@v1
-      with:
-          host: github.com
-          private-key: ${{ secrets.ID_RSA }}
+    #- name: Setup SSH
+    #  uses: MrSquaare/ssh-setup-action@v1
+    #  with:
+    #      host: github.com
+    #      private-key: ${{ secrets.ID_RSA }}
           
-    - name: Clone repository
-      run: git clone git@github.com:e-simo/DependentLibrary.git
+    #- name: Clone repository
+    #  run: git clone git@github.com:e-simo/DependentLibrary.git
 
     - name: Restore dependencies
       run: dotnet restore
