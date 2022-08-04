@@ -25,8 +25,8 @@ jobs:
     - name: Checkout private tools
       uses: actions/checkout@v3
       with:
-        repository: e-simo/DependentLibrary
         token: ${{ secrets.GH_PAT }}
+        repository: e-simo/DependentLibrary
         path: .
     #- uses: actions/checkout@v1  
     #  with:
