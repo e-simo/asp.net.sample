@@ -3,7 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32602.291
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asp.net.solution", "asp.net.solution\asp.net.solution.csproj", "{94D8598F-8D90-4EEF-9D9F-781C7B289D16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "asp.net.solution", "asp.net.solution\asp.net.solution.csproj", "{94D8598F-8D90-4EEF-9D9F-781C7B289D16}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9B641CBD-2A51-4F39-9130-8A053E5CC27F}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\dotnet.yml = ..\.github\workflows\dotnet.yml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependentLibrary", "..\..\DependentLibrary\DependentLibrary.csproj", "{0FBBBD78-DA48-4614-9C98-2C4133D91439}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +22,10 @@ Global
 		{94D8598F-8D90-4EEF-9D9F-781C7B289D16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94D8598F-8D90-4EEF-9D9F-781C7B289D16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94D8598F-8D90-4EEF-9D9F-781C7B289D16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FBBBD78-DA48-4614-9C98-2C4133D91439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FBBBD78-DA48-4614-9C98-2C4133D91439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FBBBD78-DA48-4614-9C98-2C4133D91439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FBBBD78-DA48-4614-9C98-2C4133D91439}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
