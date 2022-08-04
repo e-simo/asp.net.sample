@@ -25,8 +25,9 @@ jobs:
     - name: Checkout private tools
       uses: actions/checkout@v3
       with:
-        repository: e-simo/asp.net.sample
+        repository: e-simo/DependentLibrary
         token: ${{ secrets.GH_PAT }}
+        ref: refs/heads/master
         path: .
     #- uses: actions/checkout@v1  
     #  with:
