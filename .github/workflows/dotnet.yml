@@ -21,12 +21,12 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
-    - name: Checkout private tools
 
+    - name: Checkout private tools
       uses: actions/checkout@v3
       with:
-        repository: e-simo/DependentLibrary
-        repo-token: ${{ secrets.GH_PAT }}
+        repository: e-simo/asp.net.sample
+        token: ${{ secrets.GH_PAT }}
         path: .
     #- uses: actions/checkout@v1  
     #  with:
