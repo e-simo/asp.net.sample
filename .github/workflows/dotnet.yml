@@ -27,7 +27,6 @@ jobs:
       with:
         repository: e-simo/DependentLibrary
         token: ${{ secrets.GH_PAT }}
-        ref: refs/heads/master
         path: .
     #- uses: actions/checkout@v1  
     #  with:
