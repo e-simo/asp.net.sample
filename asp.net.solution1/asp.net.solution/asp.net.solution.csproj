@@ -4,8 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <!--<ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\..\DependentLibrary\DependentLibrary.csproj" />
-  </ItemGroup>-->
+  </ItemGroup>
 
 </Project>
