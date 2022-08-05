@@ -53,7 +53,8 @@ jobs:
     #- name: Clone repository
     #  run: git clone git@github.com:e-simo/DependentLibrary.git
     - name: Set selected color
-        run: git clone https://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:x-oauth-basic@github.com/e-simo/DependentLibrary.git master
+      run: | 
+        "git clone https://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:x-oauth-basic@github.com/e-simo/DependentLibrary.git master"
 
     - name: Restore dependencies
       run: dotnet restore
