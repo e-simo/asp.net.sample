@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: [ "master" ]
 
-#defaults:
-#  run:
-#    working-directory: asp.net.solution1
-
 jobs:
   build:
 
@@ -21,46 +17,13 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
-    
-    #- uses: actions/checkout@v3
-    #  with:
-    #    repository: e-simo/DependentLibrary
-    #    token: ${{ secrets.ID_RSA }}
-
-    #- name: Checkout private tools
-    #  uses: actions/checkout@v3
-    #  #if: github.event_name == 'push' && steps.setup.outputs.has_token == 'true'
-    #  with:
-    #    repository: e-simo/DependentLibrary
-    #    token: ${{ secrets.GH_PAT }}
-    #    path: .
-
-    #- uses: actions/checkout@v1  
-    #  with:
-    #    repository: e-simo/DependentLibrary
-    #    token: ${{ secrets.id_rsa }}
-    #- name: Checkout tools repo
-    #  uses: actions/checkout@v3
-    #  with:
-    #    repository: e-simo/DependentLibrary
-    #    path: .
-    - name: Checkout tools repo
+ 
+    - name: Clone DependentLibrary
       uses: actions/checkout@v3
       with:
         repository: e-simo/DependentLibrary
         token: ${{ secrets.ACCESS_TOKEN }}
         path: .
-    #- name: Setup SSH
-    #  uses: MrSquaare/ssh-setup-action@v1
-    #  with:
-    #      host: github.com
-    #      private-key: ${{ secrets.ID_RSA }}
-          
-    #- name: Clone repository
-    #  run: git clone git@github.com:e-simo/DependentLibrary.git
-    #- name: Set selected color
-    #  run: | 
-    #    git clone https://${{ secrets.ACCESS_TOKEN }}:x-oauth-basic@github.com/e-simo/DependentLibrary.git
 
     - name: Restore dependencies
       run: dotnet restore
