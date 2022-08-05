@@ -23,7 +23,7 @@ jobs:
       with:
         repository: e-simo/DependentLibrary
         token: ${{ secrets.ACCESS_TOKEN }}
-        path: .
+        path: ..\..\..\DependentLibrary\
 
     - name: Restore dependencies
       run: dotnet restore
