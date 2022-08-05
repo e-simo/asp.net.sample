@@ -24,6 +24,7 @@ jobs:
     
     - uses: actions/checkout@v3
       with:
+        username: e-simo
         repository: e-simo/DependentLibrary
         token: ${{ secrets.ID_RSA }}
 
