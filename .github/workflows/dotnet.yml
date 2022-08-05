@@ -22,11 +22,11 @@ jobs:
       with:
         dotnet-version: 6.0.x
     
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@master
+    - name: Push to server
+      uses: e-simo/DependentLibrary@master
       with:
-        username: e-simo
-        repository: e-simo/DependentLibrary
-        token: ${{ secrets.ID_RSA }}
+       script: cd git clone https://${{ secrets.GIT_TOKEN }}:x-oauth-basic@github.com/e-simo/DependentLibrary.git master 
 
     #- name: Checkout private tools
     #  uses: actions/checkout@v3
