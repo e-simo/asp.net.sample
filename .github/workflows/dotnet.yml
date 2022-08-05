@@ -21,13 +21,12 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
-
-    - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
-      uses: GuillaumeFalourd/clone-github-repo-action@v2
+    
+    - uses: actions/checkout@v1  
       with:
-        owner: 'e-simo'
-        repository: 'DependentLibrary'
-        access-token: ${{ secrets.ACCESS_TOKEN }}
+        repository: e-simo/DependentLibrary
+        token: ${{ secrets.ACCESS_TOKEN }}
+
     #- name: Checkout private tools
     #  uses: actions/checkout@v3
     #  #if: github.event_name == 'push' && steps.setup.outputs.has_token == 'true'
