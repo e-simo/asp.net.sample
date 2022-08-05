@@ -25,7 +25,6 @@ jobs:
     - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
       uses: GuillaumeFalourd/clone-github-repo-action@v2
       with:
-        owner: 'e-simo'
         repository: 'e-simo/DependentLibrary'
         access-token: ${{ secrets.GH_PAT }}
     #- name: Checkout private tools
