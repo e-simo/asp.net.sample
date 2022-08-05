@@ -22,11 +22,10 @@ jobs:
       with:
         dotnet-version: 6.0.x
     
-    - uses: actions/checkout@master
-    - name: Push to server
-      uses: e-simo/asp.net.sample@master
-      with:
-       script: cd git clone https://${{ secrets.GIT_TOKEN }}:x-oauth-basic@github.com/e-simo/DependentLibrary.git master 
+    #- uses: actions/checkout@v3
+    #  with:
+    #    repository: e-simo/DependentLibrary
+    #    token: ${{ secrets.ID_RSA }}
 
     #- name: Checkout private tools
     #  uses: actions/checkout@v3
