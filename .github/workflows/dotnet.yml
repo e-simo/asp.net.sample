@@ -39,11 +39,11 @@ jobs:
     #  with:
     #    repository: e-simo/DependentLibrary
     #    token: ${{ secrets.id_rsa }}
-    #- name: Checkout tools repo
-    #  uses: actions/checkout@v3
-    #  with:
-    #    repository: e-simo/DependentLibrary
-    #    path: .
+    - name: Checkout tools repo
+      uses: actions/checkout@v3
+      with:
+        repository: e-simo/DependentLibrary
+        path: .
     #- name: Setup SSH
     #  uses: MrSquaare/ssh-setup-action@v1
     #  with:
@@ -52,9 +52,9 @@ jobs:
           
     #- name: Clone repository
     #  run: git clone git@github.com:e-simo/DependentLibrary.git
-    - name: Set selected color
-      run: | 
-        git clone https://${{ secrets.ACCESS_TOKEN }}:x-oauth-basic@github.com/e-simo/DependentLibrary.git
+    #- name: Set selected color
+    #  run: | 
+    #    git clone https://${{ secrets.ACCESS_TOKEN }}:x-oauth-basic@github.com/e-simo/DependentLibrary.git
 
     #- name: Restore dependencies
     #  run: dotnet restore
