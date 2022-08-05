@@ -24,7 +24,7 @@ jobs:
 
     - name: Checkout private tools
       uses: actions/checkout@v3
-      if: github.event_name == 'push' && steps.setup.outputs.has_token == 'true'
+      #if: github.event_name == 'push' && steps.setup.outputs.has_token == 'true'
       with:
         repository: e-simo/DependentLibrary
         token: ${{ secrets.GH_PAT }}
