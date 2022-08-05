@@ -56,9 +56,11 @@ jobs:
       run: | 
         git clone https://${{ secrets.ACCESS_TOKEN }}:x-oauth-basic@github.com/e-simo/DependentLibrary.git
 
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    #- name: Restore dependencies
+    #  run: dotnet restore
+    #- name: Build
+    #  run: dotnet build --no-restore
+    #- name: Test
+    #  run: dotnet test --no-build --verbosity normal
+    - name: Download all workflow run artifacts
+      uses: actions/download-artifact@v3
