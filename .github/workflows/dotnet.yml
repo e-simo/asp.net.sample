@@ -39,10 +39,16 @@ jobs:
     #  with:
     #    repository: e-simo/DependentLibrary
     #    token: ${{ secrets.id_rsa }}
+    #- name: Checkout tools repo
+    #  uses: actions/checkout@v3
+    #  with:
+    #    repository: e-simo/DependentLibrary
+    #    path: .
     - name: Checkout tools repo
       uses: actions/checkout@v3
       with:
         repository: e-simo/DependentLibrary
+        token: ${{ secrets.ACCESS_TOKEN }}
         path: .
     #- name: Setup SSH
     #  uses: MrSquaare/ssh-setup-action@v1
