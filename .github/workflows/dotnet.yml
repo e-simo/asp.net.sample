@@ -5,9 +5,9 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-defaults:
-  run:
-    working-directory: asp.net.solution1
+#defaults:
+#  run:
+#    working-directory: asp.net.solution1
 jobs:
   build:
 
