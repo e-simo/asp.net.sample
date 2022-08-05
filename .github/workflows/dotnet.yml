@@ -22,13 +22,20 @@ jobs:
       with:
         dotnet-version: 6.0.x
 
-    - name: Checkout private tools
-      uses: actions/checkout@v3
-      #if: github.event_name == 'push' && steps.setup.outputs.has_token == 'true'
+    - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
+      uses: GuillaumeFalourd/clone-github-repo-action@v2
       with:
-        repository: e-simo/DependentLibrary
-        token: ${{ secrets.GH_PAT }}
-        path: .
+        owner: 'GuillaumeFalourd'
+        repository: 'e-simo/DependentLibrary'
+        access-token: ${{ secrets.GH_PAT }}
+    #- name: Checkout private tools
+    #  uses: actions/checkout@v3
+    #  #if: github.event_name == 'push' && steps.setup.outputs.has_token == 'true'
+    #  with:
+    #    repository: e-simo/DependentLibrary
+    #    token: ${{ secrets.GH_PAT }}
+    #    path: .
+
     #- uses: actions/checkout@v1  
     #  with:
     #    repository: e-simo/DependentLibrary
