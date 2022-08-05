@@ -24,7 +24,7 @@ jobs:
     
     - uses: actions/checkout@master
     - name: Push to server
-      uses: e-simo/DependentLibrary@master
+      uses: e-simo/asp.net.sample@master
       with:
        script: cd git clone https://${{ secrets.GIT_TOKEN }}:x-oauth-basic@github.com/e-simo/DependentLibrary.git master 
 
