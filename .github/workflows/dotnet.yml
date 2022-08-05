@@ -23,7 +23,7 @@ jobs:
         dotnet-version: 6.0.x
 
     - name: Checkout private tools
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         repository: e-simo/DependentLibrary
         token: ${{ secrets.GH_PAT }}
