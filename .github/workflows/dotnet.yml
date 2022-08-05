@@ -53,9 +53,8 @@ jobs:
     #- name: Clone repository
     #  run: git clone git@github.com:e-simo/DependentLibrary.git
 
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v3
     - name: Push to server
-      uses: e-simo/asp.net.sample@master
       with:
        script: git clone https://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:x-oauth-basic@github.com/e-simo/DependentLibrary.git master
 
