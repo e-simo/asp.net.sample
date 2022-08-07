@@ -52,7 +52,5 @@ jobs:
 
     - name: Experiment1
       run: |
-        cd ../asp.net.solution1
+        cd ..
         ls
-        dotnet restore
-        dotnet build --no-restore
