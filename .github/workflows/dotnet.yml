@@ -20,19 +20,19 @@ jobs:
       with:
         dotnet-version: 6.0.x
  
-    - name: Clone DependentLibrary
-      uses: actions/checkout@v3
-      with:
-        repository: e-simo/DependentLibrary
-        token: ${{ secrets.ACCESS_TOKEN }}
-        path: ./DependentLibrary
-
     - name: Clone AspNetLibrary
       uses: actions/checkout@v3
       with:
-        repository: e-simo/DependentLibrary
+        repository: e-simo/asp.net.sample
         token: ${{ secrets.ACCESS_TOKEN }}
         path: ./DependentLibrary
+
+    - name: Clone DependentLibrary 
+      uses: actions/checkout@v3
+      with:
+        repository: e-simo/DependentLibrary
+        token: ${{ secrets.ACCESS_TOKEN }}
+        path: ./asp.net.sample
 
     #- name: Restore dependencies
     #  run: dotnet restore
