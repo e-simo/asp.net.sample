@@ -47,3 +47,4 @@ jobs:
       run: |
         cd DependentLibrary
         ls
+        dotnet build --no-restore
