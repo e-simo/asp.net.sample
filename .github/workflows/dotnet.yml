@@ -49,3 +49,10 @@ jobs:
         ls
         dotnet restore
         dotnet build --no-restore
+
+    - name: Experiment1
+      run: |
+        cd ../asp.net.solution1
+        ls
+        dotnet restore
+        dotnet build --no-restore
