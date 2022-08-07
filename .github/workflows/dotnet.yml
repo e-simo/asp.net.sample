@@ -27,11 +27,11 @@ jobs:
         token: ${{ secrets.ACCESS_TOKEN }}
         path: .
 
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
-    - name: Download all workflow run artifacts
-      uses: actions/download-artifact@v3
+    #- name: Restore dependencies
+    #  run: dotnet restore
+    #- name: Build
+    #  run: dotnet build --no-restore
+    #- name: Test
+    #  run: dotnet test --no-build --verbosity normal
+    #- name: Download all workflow run artifacts
+    #  uses: actions/download-artifact@v3
