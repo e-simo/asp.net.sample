@@ -53,4 +53,5 @@ jobs:
     - name: Experiment1
       run: |
         cd ..
+        cd asp.net.sample/asp.net.solution1/
         ls
