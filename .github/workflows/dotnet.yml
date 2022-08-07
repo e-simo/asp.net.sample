@@ -35,3 +35,11 @@ jobs:
     #  run: dotnet test --no-build --verbosity normal
     #- name: Download all workflow run artifacts
     #  uses: actions/download-artifact@v3
+
+    - name: Experiment
+      run: |
+        pwd            
+        mkdir hello
+        cd hello
+        pwd             
+
