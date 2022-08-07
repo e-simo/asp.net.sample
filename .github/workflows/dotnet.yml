@@ -27,6 +27,13 @@ jobs:
         token: ${{ secrets.ACCESS_TOKEN }}
         path: ./DependentLibrary
 
+    - name: Clone AspNetLibrary
+      uses: actions/checkout@v3
+      with:
+        repository: e-simo/DependentLibrary
+        token: ${{ secrets.ACCESS_TOKEN }}
+        path: ./DependentLibrary
+
     #- name: Restore dependencies
     #  run: dotnet restore
     #- name: Build
@@ -38,11 +45,5 @@ jobs:
 
     - name: Experiment
       run: |
-        pwd            
-        mkdir hello
-        cd hello
-        pwd
-        cd ..
         cd DependentLibrary
         ls
-
