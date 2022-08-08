@@ -26,6 +26,8 @@ jobs:
         ls
         cd asp.net.solution1
         ls
+        cd asp.net.solution
+        ls
 
     - name: Clone AspNetLibrary 
       uses: actions/checkout@v3
