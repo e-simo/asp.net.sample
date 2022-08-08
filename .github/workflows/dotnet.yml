@@ -51,6 +51,11 @@ jobs:
       run: |
         ls
         pwd
+        cd asp.net.solution1
+        ls
+        cd asp.net.solution
+        pwd
+        ls
         
 
     #- name: Restore dependencies
