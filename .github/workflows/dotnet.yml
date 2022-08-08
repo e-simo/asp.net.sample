@@ -25,7 +25,7 @@ jobs:
       with:
         repository: e-simo/DependentLibrary
         token: ${{ secrets.ACCESS_TOKEN }}
-        path: ./DependentLibrary
+        path: ./asp.net.sample/DependentLibrary
 
     #- name: Clone AspNetLibrary 
     #  uses: actions/checkout@v3
