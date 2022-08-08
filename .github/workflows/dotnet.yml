@@ -55,3 +55,5 @@ jobs:
         cd ..
         cd asp.net.sample/asp.net.solution1/
         ls
+        dotnet restore
+        dotnet build --no-restore
