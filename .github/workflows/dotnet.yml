@@ -20,6 +20,10 @@ jobs:
       with:
         dotnet-version: 6.0.x
 
+    - name: Experiment
+      run: |
+        pwd
+
     - name: Clone AspNetLibrary 
       uses: actions/checkout@v3
       with:
@@ -27,12 +31,12 @@ jobs:
         token: ${{ secrets.ACCESS_TOKEN }}
         path: ./asp.net.sample
  
-    - name: Clone DependentLibrary
-      uses: actions/checkout@v3
-      with:
-        repository: e-simo/DependentLibrary
-        token: ${{ secrets.ACCESS_TOKEN }}
-        path: ./asp.net.sample/DependentLibrary
+    #- name: Clone DependentLibrary
+    #  uses: actions/checkout@v3
+    #  with:
+    #    repository: e-simo/DependentLibrary
+    #    token: ${{ secrets.ACCESS_TOKEN }}
+    #    path: ./asp.net.sample/DependentLibrary
 
 
 
@@ -45,19 +49,19 @@ jobs:
     #- name: Download all workflow run artifacts
     #  uses: actions/download-artifact@v3
 
-    - name: Experiment
-      run: |
-        cd /asp.net.sample/DependentLibrary
-        pwd
-        ls
-        dotnet restore
-        dotnet build --no-restore
+    #- name: Experiment
+    #  run: |
+    #    cd /asp.net.sample/DependentLibrary
+    #    pwd
+    #    ls
+    #    dotnet restore
+    #    dotnet build --no-restore
 
-    - name: Experiment1
-      run: |
-        cd ..
-        cd asp.net.sample/asp.net.solution1/asp.net.solution
-        pwd
-        ls
-        dotnet restore
-        dotnet build --no-restore
+    #- name: Experiment1
+    #  run: |
+    #    cd ..
+    #    cd asp.net.sample/asp.net.solution1/asp.net.solution
+    #    pwd
+    #    ls
+    #    dotnet restore
+    #    dotnet build --no-restore
