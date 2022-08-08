@@ -39,19 +39,19 @@ jobs:
       run: |
         pwd
         ls
-        cd /asp.net.solution1
-        pwd
-        ls
-        cd ..
-        cd ..
         cd asp.net.solution1
         pwd
         ls
-        cd asp.net.solution
-        pwd
-        ls
-        dotnet restore
-        dotnet build --no-restore
+        cd ..
+        #cd ..
+        #cd asp.net.solution1
+        #pwd
+        #ls
+        #cd asp.net.solution
+        #pwd
+        #ls
+        #dotnet restore
+        #dotnet build --no-restore
        
         
 
