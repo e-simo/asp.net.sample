@@ -22,6 +22,7 @@ jobs:
 
     - name: create directory DependentLibrary
       run: |
+        cd asp.net.sample1
         mkdir DependentLibrary
 
     #- name: Clone AspNetLibrary 
