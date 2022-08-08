@@ -49,9 +49,9 @@ jobs:
 
     - name: Experiment
       run: |
-        cd DependentLibrary
-        pwd
         ls
+        pwd
+        
 
     #- name: Restore dependencies
     #  run: dotnet restore
