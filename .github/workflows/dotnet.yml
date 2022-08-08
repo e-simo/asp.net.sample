@@ -24,7 +24,7 @@ jobs:
       run: |
         pwd
         ls
-        cd cd asp.net.solution1
+        cd asp.net.solution1
         mkdir DependentLibrary
 
     #- name: Clone AspNetLibrary 
