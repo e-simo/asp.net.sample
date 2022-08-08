@@ -47,6 +47,8 @@ jobs:
         pwd
         ls
         cat asp.net.solution.csproj
+        sed -i 's/\.\.\\D/D/g' asp.net.solution.csproj
+        cat asp.net.solution.csproj
         dotnet restore
         dotnet build --no-restore
        
