@@ -45,7 +45,7 @@ jobs:
 
     - name: Experiment
       run: |
-        cd DependentLibrary
+        cd /asp.net.sample/DependentLibrary
         pwd
         ls
         dotnet restore
