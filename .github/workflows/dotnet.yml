@@ -9,7 +9,7 @@ on:
 #  run:
 #    working-directory: asp.net.solution1
 jobs:
-  build:
+  build_project:
 
     runs-on: ubuntu-latest
 
