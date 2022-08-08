@@ -23,6 +23,7 @@ jobs:
     - name: Experiment
       run: |
         pwd
+        ls
 
     - name: Clone AspNetLibrary 
       uses: actions/checkout@v3
