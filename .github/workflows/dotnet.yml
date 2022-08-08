@@ -21,8 +21,7 @@ jobs:
         dotnet-version: 6.0.x
 
     - name: create directory DependentLibrary
-      run: |
-        mkdir DependentLibrary
+      run: mkdir DependentLibrary
 
 
     - name: Clone DependentLibrary
