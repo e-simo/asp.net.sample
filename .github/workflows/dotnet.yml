@@ -22,9 +22,6 @@ jobs:
 
     - name: create directory DependentLibrary
       run: |
-        pwd
-        ls
-        cd ..
         mkdir DependentLibrary
 
 
@@ -33,7 +30,7 @@ jobs:
       with:
         repository: e-simo/DependentLibrary
         token: ${{ secrets.ACCESS_TOKEN }}
-        path: ../DependentLibrary
+        path: ./DependentLibrary
 
     - name: Experiment
       run: |
