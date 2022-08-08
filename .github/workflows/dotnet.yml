@@ -27,22 +27,13 @@ jobs:
         cd asp.net.solution1
         mkdir DependentLibrary
 
-    #- name: Clone AspNetLibrary 
-    #  uses: actions/checkout@v3
-    #  with:
-    #    repository: e-simo/asp.net.sample
-    #    token: ${{ secrets.ACCESS_TOKEN }}
-    #    path: ./asp.net.sample
- 
-
-
 
     - name: Clone DependentLibrary
       uses: actions/checkout@v3
       with:
         repository: e-simo/DependentLibrary
         token: ${{ secrets.ACCESS_TOKEN }}
-        path: ./DependentLibrary
+        path: ./asp.net.solution1/DependentLibrary
 
     - name: Experiment
       run: |
