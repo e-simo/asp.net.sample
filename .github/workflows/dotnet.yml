@@ -46,6 +46,7 @@ jobs:
     - name: Experiment
       run: |
         cd DependentLibrary
+        pwd
         ls
         dotnet restore
         dotnet build --no-restore
@@ -54,6 +55,7 @@ jobs:
       run: |
         cd ..
         cd asp.net.sample/asp.net.solution1/asp.net.solution
+        pwd
         ls
         dotnet restore
         dotnet build --no-restore
