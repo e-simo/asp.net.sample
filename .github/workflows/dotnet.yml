@@ -39,9 +39,10 @@ jobs:
       run: |
         pwd
         ls
-        cd DependentLibrary
+        cd /asp.net.solution1/DependentLibrary
         pwd
         ls
+        cd ..
         cd ..
         cd asp.net.solution1
         pwd
