@@ -24,6 +24,8 @@ jobs:
       run: |
         pwd
         ls
+        cd asp.net.solution1
+        ls
 
     - name: Clone AspNetLibrary 
       uses: actions/checkout@v3
