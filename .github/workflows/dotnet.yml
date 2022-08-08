@@ -55,6 +55,8 @@ jobs:
         cd asp.net.solution
         pwd
         ls
+        dotnet restore
+        dotnet build --no-restore
        
         
 
