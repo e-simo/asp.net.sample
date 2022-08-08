@@ -27,23 +27,29 @@ jobs:
         cd asp.net.solution1
         ls
         cd asp.net.solution
+        pwd
         ls
 
-    - name: Clone AspNetLibrary 
-      uses: actions/checkout@v3
-      with:
-        repository: e-simo/asp.net.sample
-        token: ${{ secrets.ACCESS_TOKEN }}
-        path: ./asp.net.sample
+    #- name: Clone AspNetLibrary 
+    #  uses: actions/checkout@v3
+    #  with:
+    #    repository: e-simo/asp.net.sample
+    #    token: ${{ secrets.ACCESS_TOKEN }}
+    #    path: ./asp.net.sample
  
+
+
+
     #- name: Clone DependentLibrary
     #  uses: actions/checkout@v3
     #  with:
     #    repository: e-simo/DependentLibrary
     #    token: ${{ secrets.ACCESS_TOKEN }}
-    #    path: ./asp.net.sample/DependentLibrary
+    #    path: ./asp.net.sample/
 
-
+    - name: Experiment
+      run: |
+        pwd
 
     #- name: Restore dependencies
     #  run: dotnet restore
