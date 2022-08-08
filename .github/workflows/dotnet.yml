@@ -20,15 +20,9 @@ jobs:
       with:
         dotnet-version: 6.0.x
 
-    - name: Experiment
+    - name: create directory DependentLibrary
       run: |
-        pwd
-        ls
-        cd asp.net.solution1
-        ls
-        cd asp.net.solution
-        pwd
-        ls
+        mkdir DependentLibrary
 
     #- name: Clone AspNetLibrary 
     #  uses: actions/checkout@v3
@@ -45,17 +39,12 @@ jobs:
       with:
         repository: e-simo/DependentLibrary
         token: ${{ secrets.ACCESS_TOKEN }}
-        path: .
+        path: ./DependentLibrary
 
     - name: Experiment
       run: |
-        ls
         pwd
-        cd asp.net.solution1
-        ls
-        cd asp.net.solution
-        pwd
-        ls
+       
         
 
     #- name: Restore dependencies
