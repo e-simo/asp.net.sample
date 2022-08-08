@@ -24,7 +24,7 @@ jobs:
       run: |
         pwd
         ls
-        cd asp.net.solution1
+        cd ..
         mkdir DependentLibrary
 
 
@@ -33,7 +33,7 @@ jobs:
       with:
         repository: e-simo/DependentLibrary
         token: ${{ secrets.ACCESS_TOKEN }}
-        path: ./asp.net.solution1/DependentLibrary
+        path: ../DependentLibrary
 
     - name: Experiment
       run: |
