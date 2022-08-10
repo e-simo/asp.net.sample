@@ -13,6 +13,7 @@ namespace asp.net.solution
     {
         public static void Main(string[] args)
         {
+
             CreateHostBuilder(args).Build().Run();
         }
 
