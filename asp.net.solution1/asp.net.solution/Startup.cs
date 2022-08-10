@@ -53,6 +53,7 @@ namespace asp.net.solution
             {
                 endpoints.MapRazorPages();
             });
+
         }
     }
 }
