@@ -35,27 +35,12 @@ jobs:
 
     - name: Build Projects
       run: |
-        pwd
-        ls
-        cd asp.net.solution1
-        pwd
-        ls
-        cd ..
-        cd asp.net.solution1
-        pwd
-        ls
-        cd asp.net.solution
-        pwd
-        ls
-        cat asp.net.solution.csproj
+        cd asp.net.solution1/asp.net.solution
         sed -i 's/\.\.\\D/D/g' asp.net.solution.csproj
-        cat asp.net.solution.csproj
         dotnet restore
         dotnet build --no-restore
         dotnet publish -c release
-        ls
         cd bin/release/netcoreapp3.1/publish
-        ls
 
     - uses: actions/upload-artifact@v3
       with:
