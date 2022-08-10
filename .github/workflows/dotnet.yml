@@ -54,10 +54,5 @@ jobs:
         dotnet build --no-restore
         dotnet publish -c release
         ls
-        cd bin
+        cd bin/release/netcoreapp3.1/publish
         ls
-        cd release/netcoreapp3.1
-        ls
-
-
-       
