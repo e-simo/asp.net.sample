@@ -55,6 +55,7 @@ jobs:
         dotnet publish -c release
         ls
         cd bin
+        ls
 
 
        
