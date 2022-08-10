@@ -2,14 +2,17 @@ name: .NET
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches:    
+      - '*'         # matches every branch that doesn't contain a '/'
+      - '*/*'       # matches every branch containing a single '/'
+      - '**'        # matches every branch
+      - '!master'   # excludes master
+
 defaults:
   run:
     working-directory: asp.net.solution1
 jobs:
-  build:
+  build_project_:
 
     runs-on: ubuntu-latest
 
@@ -19,19 +22,35 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
- 
+
+    - name: create directory DependentLibrary
+      run: mkdir DependentLibrary
+
+
     - name: Clone DependentLibrary
       uses: actions/checkout@v3
       with:
         repository: e-simo/DependentLibrary
         token: ${{ secrets.ACCESS_TOKEN }}
-        path: .
+        path: ./DependentLibrary
 
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
-    - name: Download all workflow run artifacts
-      uses: actions/download-artifact@v3
+    - name: Build Projects
+      run: |
+        pwd
+        ls
+        cd asp.net.solution1
+        pwd
+        ls
+        cd ..
+        cd asp.net.solution1
+        pwd
+        ls
+        cd asp.net.solution
+        pwd
+        ls
+        cat asp.net.solution.csproj
+        sed -i 's/\.\.\\D/D/g' asp.net.solution.csproj
+        cat asp.net.solution.csproj
+        dotnet restore
+        dotnet build --no-restore
+       
