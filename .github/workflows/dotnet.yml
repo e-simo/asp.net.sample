@@ -7,9 +7,6 @@ on:
       - '**'        # matches every branch
       - '!master'   # excludes master
 
-#defaults:
-#  run:
-#    working-directory: asp.net.solution1
 jobs:
   build:
     name: Build Project
@@ -24,7 +21,6 @@ jobs:
 
     - name: create directory DependentLibrary
       run: mkdir DependentLibrary
-
 
     - name: Clone DependentLibrary
       uses: actions/checkout@v3
