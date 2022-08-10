@@ -52,4 +52,7 @@ jobs:
         cat asp.net.solution.csproj
         dotnet restore
         dotnet build --no-restore
+        dotnet publish -c release
+        ls
+
        
