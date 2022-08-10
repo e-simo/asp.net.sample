@@ -61,3 +61,4 @@ jobs:
       with:
         name: publish_artifacts
         path: ./asp.net.solution1/asp.net.solution/bin/release/netcoreapp3.1/publish
+        retention-days: 5
