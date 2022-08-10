@@ -1,4 +1,4 @@
-name: .NET
+name: Build Project
 
 on:
   push:
@@ -8,9 +8,9 @@ on:
       - '**'        # matches every branch
       - '!master'   # excludes master
 
-defaults:
-  run:
-    working-directory: asp.net.solution1
+#defaults:
+#  run:
+#    working-directory: asp.net.solution1
 jobs:
   build_project_:
 
