@@ -60,4 +60,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: my-artifact
-        path: /asp.net.solution1/asp.net.solution/bin/release/netcoreapp3.1/publish
+        path: ./asp.net.solution1/
