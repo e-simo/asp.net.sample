@@ -8,7 +8,7 @@ on:
       - '!master'   # excludes master
 
 jobs:
-  build:
+  GetDependencies:
     name: Build Project
     runs-on: ubuntu-latest
 
@@ -19,27 +19,27 @@ jobs:
       with:
         dotnet-version: 3.1.x
 
-    #- name: create directory DependentLibrary
-    #  run: mkdir DependentLibrary
+    - name: create directory DependentLibrary
+      run: mkdir DependentLibrary
 
-    #- name: Clone DependentLibrary
-    #  uses: actions/checkout@v3
-    #  with:
-    #    repository: e-simo/DependentLibrary
-    #    token: ${{ secrets.ACCESS_TOKEN }}
-    #    path: ./DependentLibrary
+    - name: Clone DependentLibrary
+      uses: actions/checkout@v3
+      with:
+        repository: e-simo/DependentLibrary
+        token: ${{ secrets.ACCESS_TOKEN }}
+        path: ./DependentLibrary
 
-    #- name: Build Projects
-    #  run: |
-    #    cd asp.net.solution1/asp.net.solution
-    #    sed -i 's/\.\.\\D/D/g' asp.net.solution.csproj
-    #    dotnet restore
-    #    dotnet build --no-restore
-    #    dotnet publish -c release
-    #    cd bin/release/netcoreapp3.1/publish
+    - name: Build Projects
+      run: |
+        cd asp.net.solution1/asp.net.solution
+        sed -i 's/\.\.\\D/D/g' asp.net.solution.csproj
+        dotnet restore
+        dotnet build --no-restore
+        dotnet publish -c release
+        cd bin/release/netcoreapp3.1/publish
 
-    #- uses: actions/upload-artifact@v3
-    #  with:
-    #    name: publish_artifacts
-    #    path: ./asp.net.solution1/asp.net.solution/bin/release/netcoreapp3.1/publish
-    #    retention-days: 5
+    - uses: actions/upload-artifact@v3
+      with:
+        name: publish_artifacts
+        path: ./asp.net.solution1/asp.net.solution/bin/release/netcoreapp3.1/publish
+        retention-days: 5
