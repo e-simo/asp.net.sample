@@ -38,10 +38,15 @@ jobs:
         dotnet publish -c release
         cd bin/release/netcoreapp3.1/publish
         Start-Process powershell -verb runas -ArgumentList "-file C:\Users\emis\tryouts\stopwebsite.ps1"
+        echo ${{ secrets.DEV_DEPLOY_FOLDER }}
 
 
-    - uses: actions/upload-artifact@v3
-      with:
-        name: publish_artifacts
-        path: ./asp.net.solution1/asp.net.solution/bin/release/netcoreapp3.1/publish
-        retention-days: 5
+    #- uses: actions/upload-artifact@v3
+    #  with:
+    #    name: publish_artifacts
+    #    path: ./asp.net.solution1/asp.net.solution/bin/release/netcoreapp3.1/publish
+    #    retention-days: 5
+
+
+
+#copy-item -Path ""C:\test\from\*"" -Destination (new-item -type directory -force ("C:\test\" + $(Get-Date -f dd_MM_yyyy_hhmmss))) -force -ea 0
