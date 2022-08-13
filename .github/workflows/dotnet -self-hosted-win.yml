@@ -37,6 +37,7 @@ jobs:
         dotnet build --no-restore
         dotnet publish -c release
         cd bin/release/netcoreapp3.1/publish
+        start-website -Name "CoreApi"
 
     - uses: actions/upload-artifact@v3
       with:
