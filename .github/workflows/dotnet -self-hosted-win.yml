@@ -37,8 +37,7 @@ jobs:
         dotnet build --no-restore
         dotnet publish -c release
         cd bin/release/netcoreapp3.1/publish
-        Start-Process -FilePath "powershell" -Verb RunAs
-        start-website -Name "CoreApi"
+        Start-Process powershell -verb runas -ArgumentList "-file C:\Users\emis\actions-runner\scripts\stopwebsite.ps1"
 
 
     - uses: actions/upload-artifact@v3
