@@ -1,15 +1,20 @@
-name: Build Project Self Hosted Windows
+name: Publish on DEV Server
 on:
-  push:
-    branches:    
-      - '*'         # matches every branch that doesn't contain a '/'
-      - '*/*'       # matches every branch containing a single '/'
-      - '**'        # matches every branch
-      - '!master'   # excludes master
+  #push:
+  workflow_dispatch:
+    branches: [master] 
+      #- '*'         # matches every branch that doesn't contain a '/'
+      #- '*/*'       # matches every branch containing a single '/'
+      #- '**'        # matches every branch
+      #- '!master'   # excludes master
+
+env:
+ SCRIPTS_FOLDER: C:\github_runner\scripts
+
 
 jobs:
   GetDependencies:
-    name: Build Project Self Hosted Windows
+    name: Publish on DEV Server
     runs-on: self-hosted
 
     steps:
@@ -29,17 +34,21 @@ jobs:
         token: ${{ secrets.ACCESS_TOKEN }}
         path: ./DependentLibrary
 
-    - name: Build Projects
+    - name: Stop CoreApi Website
       run: |
-        cd asp.net.solution1/asp.net.solution
-        ((Get-Content -path '.\asp.net.solution.csproj' -Raw) -replace '\.\.\\Dep','Dep') | Set-Content -Path '.\asp.net.solution.csproj'
-        dotnet restore
-        dotnet build --no-restore
-        dotnet publish -c release
-        cd bin/release/netcoreapp3.1/publish
-        Start-Process powershell -verb runas -ArgumentList "-file C:\Users\emis\tryouts\stopwebsite.ps1"
-        cd ${{ DEV.DEPLOY_FOLDER }}
-        mkdir bla
+         Start-Process powershell -verb runas -ArgumentList "-file $SCRIPTS_FOLDER\stopwebsite.ps1"
+
+    #- name: Build Projects
+    #  run: |
+    #    cd asp.net.solution1/asp.net.solution
+    #    ((Get-Content -path '.\asp.net.solution.csproj' -Raw) -replace '\.\.\\Dep','Dep') | Set-Content -Path '.\asp.net.solution.csproj'
+    #    dotnet restore
+    #    dotnet build --no-restore
+    #    dotnet publish -c release
+    #    cd bin/release/netcoreapp3.1/publish
+    #    Start-Process powershell -verb runas -ArgumentList "-file C:\Users\emis\tryouts\stopwebsite.ps1"
+    #    cd ${{ DEV.DEPLOY_FOLDER }}
+    #    mkdir bla
 
 
     #- uses: actions/upload-artifact@v3
