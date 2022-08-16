@@ -1,5 +1,4 @@
-name: .NET
-
+name: Build Project
 on:
   push:
     branches:    
@@ -8,24 +7,20 @@ on:
       - '**'        # matches every branch
       - '!master'   # excludes master
 
-defaults:
-  run:
-    working-directory: asp.net.solution1
 jobs:
-  build_project_:
-
-    runs-on: ubuntu-latest
+  GetDependencies:
+    name: Build Project
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 3.1.x
 
     - name: create directory DependentLibrary
       run: mkdir DependentLibrary
-
 
     - name: Clone DependentLibrary
       uses: actions/checkout@v3
@@ -36,21 +31,15 @@ jobs:
 
     - name: Build Projects
       run: |
-        pwd
-        ls
-        cd asp.net.solution1
-        pwd
-        ls
-        cd ..
-        cd asp.net.solution1
-        pwd
-        ls
-        cd asp.net.solution
-        pwd
-        ls
-        cat asp.net.solution.csproj
+        cd asp.net.solution1/asp.net.solution
         sed -i 's/\.\.\\D/D/g' asp.net.solution.csproj
-        cat asp.net.solution.csproj
         dotnet restore
         dotnet build --no-restore
-       
+        dotnet publish -c release
+        cd bin/release/netcoreapp3.1/publish
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: publish_artifacts
+        path: ./asp.net.solution1/asp.net.solution/bin/release/netcoreapp3.1/publish
+        retention-days: 5
