@@ -1,0 +1,62 @@
+name: Publish on DEV Server
+on:
+  #push:
+  workflow_dispatch:
+    branches: [master] 
+      #- '*'         # matches every branch that doesn't contain a '/'
+      #- '*/*'       # matches every branch containing a single '/'
+      #- '**'        # matches every branch
+      #- '!master'   # excludes master
+
+env:
+ SCRIPTS_FOLDER: C:\github_runner\scripts
+
+
+jobs:
+  GetDependencies:
+    name: Publish on DEV Server
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 3.1.x
+
+    - name: create directory DependentLibrary
+      run: mkdir DependentLibrary
+
+    - name: Clone DependentLibrary
+      uses: actions/checkout@v3
+      with:
+        repository: e-simo/DependentLibrary
+        token: ${{ secrets.ACCESS_TOKEN }}
+        path: ./DependentLibrary
+
+    - name: Stop CoreApi Website
+      run: |
+         Start-Process powershell -verb runas -ArgumentList "-file $SCRIPTS_FOLDER\stopwebsite.ps1"
+
+    #- name: Build Projects
+    #  run: |
+    #    cd asp.net.solution1/asp.net.solution
+    #    ((Get-Content -path '.\asp.net.solution.csproj' -Raw) -replace '\.\.\\Dep','Dep') | Set-Content -Path '.\asp.net.solution.csproj'
+    #    dotnet restore
+    #    dotnet build --no-restore
+    #    dotnet publish -c release
+    #    cd bin/release/netcoreapp3.1/publish
+    #    Start-Process powershell -verb runas -ArgumentList "-file C:\Users\emis\tryouts\stopwebsite.ps1"
+    #    cd ${{ DEV.DEPLOY_FOLDER }}
+    #    mkdir bla
+
+
+    #- uses: actions/upload-artifact@v3
+    #  with:
+    #    name: publish_artifacts
+    #    path: ./asp.net.solution1/asp.net.solution/bin/release/netcoreapp3.1/publish
+    #    retention-days: 5
+
+
+
+#copy-item -Path ""C:\test\from\*"" -Destination (new-item -type directory -force ("C:\test\" + $(Get-Date -f dd_MM_yyyy_hhmmss))) -force -ea 0
