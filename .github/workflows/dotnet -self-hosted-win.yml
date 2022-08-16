@@ -36,7 +36,7 @@ jobs:
 
     - name: Stop CoreApi Website
       run: |
-         Start-Process powershell -verb runas -ArgumentList "-file $SCRIPTS_FOLDER\stopCoreApi.ps1"
+         Start-Process powershell -verb runas -ArgumentList "-file C:\github_runner\scripts\stopCoreApi.ps1"
 
     #- name: Build Projects
     #  run: |
