@@ -2,10 +2,9 @@ name: Bump version
 on:
   workflow_dispatch:
     inputs:
-      environment:
-        description: 'Define env name'     
+      tag_value:
+        description: 'Specify tag(V.x.x.x)'     
         required: true
-        default: 'prod'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,7 +15,7 @@ jobs:
         uses: mathieudutour/github-tag-action@v6.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          custom_tag: sdfa
+          custom_tag: ${{ github.event.inputs.tag_value }}
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
