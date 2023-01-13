@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       tag_value:
-        description: 'Specify tag(V.x.x.x)'     
+        description: 'Specify tag(x.x.x)'     
         required: true
 jobs:
   build:
