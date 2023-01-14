@@ -14,7 +14,7 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 3.1.x
-        ref: 'v.0.60.3'
+        ref: refs/tags/cderw
 
     - name: create directory DependentLibrary
       run: mkdir DependentLibrary
