@@ -1,7 +1,10 @@
 name: Build Project
 on:
-  push:
-    branches: ["master"]
+   workflow_dispatch:
+    inputs:
+      tag_value:
+        description: 'Specify tag(x.x.x)'     
+        required: true
 
 jobs:
   GetDependencies:
@@ -11,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: 'v0.0.3'
+        ref: ${{ github.event.inputs.tag_value }}
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
