@@ -1,11 +1,7 @@
 name: Build Project
 on:
   push:
-    branches:    
-      - '*'         # matches every branch that doesn't contain a '/'
-      - '*/*'       # matches every branch containing a single '/'
-      - '**'        # matches every branch
-      - '!master'   # excludes master
+    branches: ["master"]
 
 jobs:
   GetDependencies:
