@@ -4,6 +4,8 @@ on:
     branches: [master]
 env:
   DAY_OF_WEEK: Monday
+  SOURCE_ACTION_DEPLOY_DIR: /c/Users/e.simo/dummydir/
+  DEPLOY_DIR: /c/Users/e.simo/dummydir/copydir/
 
 jobs:
   greeting_job:
@@ -16,3 +18,5 @@ jobs:
         run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
         env:
           First_Name: Mona
+      - name: "Copy stuff"
+        run: cp -r $SOURCE_ACTION_DEPLOY_DIR $DEPLOY_DIR
