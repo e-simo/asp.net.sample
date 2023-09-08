@@ -31,13 +31,13 @@ jobs:
         path: ./DependentLibrary
 
     - name: Stop CoreApi Website
-      run: Start-Process powershell -verb runas -ArgumentList "-file C:\github_runner\scripts\stopCoreApi.ps1"
+      run: Start-Process powershell -verb runas -ArgumentList "-file C:\github\scripts\stopCoreApi.ps1"
 
     - name: Backup Existing Deployment
       run: copy-item -Path "C:\Leader\MaticsCoreApi\*" -Destination (new-item -type directory -force ("C:\Leader\Backup\" + $(Get-Date -f dd_MM_yyyy_hhmmss))) -force -ea 0
 
-    - name: Start CoreApi Website
-      run: Start-Process powershell -verb runas -ArgumentList "-file C:\github_runner\scripts\startCoreApi.ps1"
+     #- name: Start CoreApi Website
+     #  run: Start-Process powershell -verb runas -ArgumentList "-file C:\github\scripts\startCoreApi.ps1"
 
     #- name: Build Projects
     #  run: |
