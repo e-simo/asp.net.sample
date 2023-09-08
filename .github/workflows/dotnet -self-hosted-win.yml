@@ -8,10 +8,6 @@ on:
       #- '**'        # matches every branch
       #- '!master'   # excludes master
 
-env:
- SCRIPTS_FOLDER: C:\github_runner\scripts
-
-
 jobs:
   GetDependencies:
     name: Publish on DEV Server
