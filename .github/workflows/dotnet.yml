@@ -25,6 +25,7 @@ jobs:
       run: |
           cd asp.net.solution1
           dotnet build --no-restore
+          dotnet publish
 
     - uses: actions/upload-artifact@v3
       with:
