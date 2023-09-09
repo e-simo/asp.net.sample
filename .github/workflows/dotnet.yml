@@ -23,8 +23,7 @@ jobs:
           dotnet restore
     - name: Build
       run: |
-          pwd
-          ls
+          cd asp.net.solution1
           dotnet build --no-restore
 
     - uses: actions/upload-artifact@v3
