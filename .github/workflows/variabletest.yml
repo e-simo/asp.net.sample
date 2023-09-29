@@ -1,39 +1,33 @@
-name: Dynamic Choice Options
-
 on:
   workflow_dispatch:
     inputs:
-      choice:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
         type: choice
-        description: Select a tag
         options:
-          - Loading...
+        - info
+        - warning
+        - debug
+      tags:
+        description: 'Test scenario tags'
+        required: false
+        type: boolean
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true
 
 jobs:
-  build:
+  log-the-inputs:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check Out Repository
-        uses: actions/checkout@v2
-
-      - name: Get Git Tags
-        id: git_tags
-        run: |
-          git fetch --tags
-          tags=$(git tag -l)
-          echo "::set-output name=tags::$tags"
-        shell: bash
-
-      - name: Set Choice Input Options
-        if: steps.git_tags.outputs.tags != ''
-        id: set_choice_options
-        run: |
-          tags="${{ steps.git_tags.outputs.tags }}"
-          options=$(echo "$tags" | sed 's/\(.*\)/\1/g')
-          echo "::set-output name=choice_options::$options"
-
-      - name: Run Workflow
-        run: |
-          selected_tag="${{ inputs.choice }}"
-          echo "Selected tag: $selected_tag"
+      - run: |
+          echo "Log level: $LEVEL"
+          echo "Tags: $TAGS"
+          echo "Environment: $ENVIRONMENT"
+        env:
+          LEVEL: ${{ inputs.logLevel }}
+          TAGS: ${{ inputs.tags }}
+          ENVIRONMENT: ${{ inputs.environment }}
