@@ -23,6 +23,7 @@ jobs:
           git fetch --tags
           tags=$(git tag -l)
           echo "::set-output name=tags::$tags"
+        shell: bash
 
       - name: Set Choice Input Options
         if: steps.git_tags.outputs.tags != ''
