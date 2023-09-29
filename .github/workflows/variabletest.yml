@@ -1,7 +1,21 @@
 name: Variables test
+
 on:
   workflow_dispatch:
-    branches: [master]
+    inputs:
+      environment:
+        type: environment
+        description: Select the environment
+      boolean:
+        type: boolean
+        description: True or False
+      choice:
+        type: choice
+        description: Make a choice
+        options:
+        - foo
+        - bar
+        - baz
 env:
   DAY_OF_WEEK: Monday
   SOURCE_ACTION_DEPLOY_DIR: C:\Users\e.simo\dummydir
