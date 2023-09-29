@@ -1,32 +1,38 @@
-name: Variables test
+name: Dynamic Choice Options
 
 on:
   workflow_dispatch:
     inputs:
-      environment:
-        type: environment
-        description: Select the environment
-      boolean:
-        type: boolean
-        description: True or False
       choice:
         type: choice
-        description: Make a choice
+        description: Select a tag
         options:
-        - foo
-        - bar
-        - baz
-env:
-  DAY_OF_WEEK: Monday
-  SOURCE_ACTION_DEPLOY_DIR: C:\Users\e.simo\dummydir
-  DEPLOY_DIR: C:\Users\e.simo\copydir
+          - Loading...
 
 jobs:
-  greeting_job:
+  build:
     runs-on: ubuntu-latest
-    env:
-      Greeting: Hello
+
     steps:
-      - name: "Say Hello Mona it's Monday"
-        if: ${{ env.DAY_OF_WEEK == 'Monday' }}
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+      - name: Check Out Repository
+        uses: actions/checkout@v2
+
+      - name: Get Git Tags
+        id: git_tags
+        run: |
+          git fetch --tags
+          tags=$(git tag -l)
+          echo "::set-output name=tags::$tags"
+
+      - name: Set Choice Input Options
+        if: steps.git_tags.outputs.tags != ''
+        id: set_choice_options
+        run: |
+          tags="${{ steps.git_tags.outputs.tags }}"
+          options=$(echo "$tags" | sed 's/\(.*\)/\1/g')
+          echo "::set-output name=choice_options::$options"
+
+      - name: Run Workflow
+        run: |
+          selected_tag="${{ inputs.choice }}"
+          echo "Selected tag: $selected_tag"
