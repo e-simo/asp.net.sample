@@ -6,8 +6,7 @@ on:
       choice:
         type: choice
         description: Select a tag
-        options:
-          - Loading...
+        options: ${{ steps.set_choice_options.outputs.choice_options }}
 
 jobs:
   build:
@@ -33,7 +32,6 @@ jobs:
           options=$(echo "$tags" | sed 's/\(.*\)/\1/g')
           echo "::set-output name=choice_options::$options"
 
-      - name: Run Workflow
-        run: |
-          selected_tag="${{ inputs.choice }}"
-          echo "Selected tag: $selected_tag"
+      - name: Fetch Git Tags Dynamically
+        id: fetch_tags
+        uses: ./get-tags.js
